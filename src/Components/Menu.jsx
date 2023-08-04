@@ -173,9 +173,8 @@ const options = {
             </div>
           ))}
         </div>
-
         
-      <hr />
+        <hr />
       <div className="user-form">
         <h2 className="user-form-heading">User Form</h2>
         <div className="form-field">

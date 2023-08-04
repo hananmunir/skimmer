@@ -165,9 +165,12 @@ label {
   font-size: 18px;
 }
 
+
 .form-field {
   margin-bottom: 10px;
+  
 }
+
 
 .form-field label {
   display: block;
@@ -177,10 +180,11 @@ label {
 
 .form-field input,
 .form-field select {
-  width: 80%;
+  width: 92%;
   padding: 10px;
   font-size: 12px;
-  border: 1px solid #ddd;
+  border: none;
+  border-bottom: 1px solid #ddd ;
   border-radius: 5px;
 }
 
