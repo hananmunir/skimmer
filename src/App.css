@@ -1,0 +1,97 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+
+#root {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+.icon-container {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+  
+}
+
+
+.icon {
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.icon img {
+  width: 1.2rem;
+  object-fit: contain;
+}
+
+.button-menu{
+  color: white;
+  background-color: rgb(39, 38, 38);
+  border: none;
+  outline: none;
+}
+
+.button-menu:focus {
+  outline: none;
+}
