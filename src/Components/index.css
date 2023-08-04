@@ -189,15 +189,31 @@ label {
 }
 
 .submit-button {
-  background-color: #4caf50;
+  background-color:  rgb(39, 38, 38);
   color: white;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.2s ease-in;
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #6b726b;
+}
+
+
+.quantity-input {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.quantity-input label {
+  margin-right: 10px; 
+}
+
+.quantity-input input {
+  width: 50px; 
 }

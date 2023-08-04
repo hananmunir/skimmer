@@ -43,7 +43,7 @@ const options = {
     ],
     "Additional options (multi-select)": [
       { name: "Micro anchor - $950", price: 950 },
-      { name: "6’ Power pole - $1,950 (user can select up to 2 as qty)", price: 1950 },
+      { name: "6’ Power pole - $1,950", price: 1950 },
       { name: "Lenco trim tabs - $1,000", price: 1000 },
       { name: "Atlas jack plate - $1,050", price: 1050 },
     ],
@@ -106,6 +106,14 @@ const options = {
           [name]: value,
         }));
     };
+
+    
+      const handleSubmit = () => {
+        // Here you can implement the logic to submit the user's selections and form data.
+        // You can access the selectedOptions and userForm state variables here and send them to your server or perform any other actions.
+        console.log("Selected Options:", selectedOptions);
+        console.log("User Form Data:", userForm);
+      };
   
     return (
       <div className="menu-container">
@@ -115,40 +123,56 @@ const options = {
         </div>
 
         <div className="menu-items-container">
-          <div className="menu-items">
-            {Object.entries(options).map(([heading, items], index) => (
-              <div key={index}>
-                <div className="menu-heading">{heading}</div>
-                {items.map((item, idx) => (
-                  <div key={idx} className="menu-item">
-                    {heading.includes("(single select)") ? (
-                      <>
+        <div className="menu-items">
+          {Object.entries(options).map(([heading, items], index) => (
+            <div key={index}>
+              <div className="menu-heading">{heading}</div>
+              {items.map((item, idx) => (
+                <div key={idx} className="menu-item">
+                  {heading.includes("(single select)") ? (
+                    <>
+                      <input
+                        type="checkbox"
+                        checked={singleSelectGroups[heading] === item}
+                        onChange={() =>
+                          handleSingleSelectChange(heading, item)
+                        }
+                      />
+                      <label>{item.name} - Price: ${item.price.toFixed(2)}</label>
+                    </>
+                  ) : (
+                    <>
+                      <input
+                        type="checkbox"
+                        checked={selectedOptions.includes(item)}
+                        onChange={(e) =>
+                          handleMultiSelectChange(item, e.target.checked)
+                        }
+                      />
+                      <label>{item.name} - Price: ${item.price.toFixed(2)}</label>
+                      {item.name === "6’ Power pole - $1,950" && (
+                        <div className="quantity-input">
+                        <label>Quantity:</label>
                         <input
-                          type="checkbox"
-                          checked={singleSelectGroups[heading] === item}
-                          onChange={() =>
-                            handleSingleSelectChange(heading, item)
-                          }
-                        />
-                        <label>{item.name} - Price: ${item.price.toFixed(2)}</label>
-                      </>
-                    ) : (
-                      <>
-                        <input
-                          type="checkbox"
-                          checked={selectedOptions.includes(item)}
+                          type="number"
+                          min="0"
+                          max="2"
+                          value={selectedOptions.filter(
+                            (option) => option.name === item.name
+                          ).length}
                           onChange={(e) =>
-                            handleMultiSelectChange(item, e.target.checked)
+                            handleQuantityChange(item, parseInt(e.target.value))
                           }
                         />
-                        <label>{item.name} - Price: ${item.price.toFixed(2)}</label>
-                      </>
-                    )}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
+                      </div>
+                      )}
+                    </>
+                  )}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
 
         
       <hr />
@@ -264,6 +288,7 @@ const options = {
             <option value="Other">Other</option>
           </select>
         </div>
+        <button className="submit-button" onClick={handleSubmit}>Submit</button>
       </div>
         </div>
 
