@@ -5,15 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import useColorStore from "../Utils/store";
-import ColorPicker from "./ColorPicker";
 
-
-const modelParts = [
-  "Hull Color",
-  "Poling Platform",
-  "Power Pole",
-  
-];
+const modelParts = ["Hull Color", "Poling Platform", "Power Pole"];
 
 const colorOptions = {
   "Hull Color": [
@@ -60,7 +53,6 @@ const colorOptions = {
       hex: "#ffffff",
     },
     {
-      
       hex: "#000000",
     },
   ],
@@ -69,14 +61,12 @@ const colorOptions = {
       hex: "#ffffff",
     },
     {
-      
       hex: "#000000",
     },
   ],
 };
 
 function ColorContainer({ show }) {
-  const [showColorPicker, setShowColorPicker] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef(null);
   const { setColors, colors, setActiveState } = useColorStore();
@@ -91,19 +81,9 @@ function ColorContainer({ show }) {
 
   useEffect(() => {
     if (show) setActiveState(modelParts[activeIndex]);
-    setShowColorPicker(false);
-    
   }, [activeIndex]);
 
   const totalSlides = modelParts.length;
-
- const handleColorContainerClick = () => {
-    if (modelParts[activeIndex] === "Hull Color") {
-      setShowColorPicker((prev) => !prev);
-    } else {
-      setShowColorPicker(false);
-    }
-  };
 
   return (
     <div className='color-container'>
@@ -140,46 +120,63 @@ function ColorContainer({ show }) {
 
       <div className='colors-div'>
         <div className='color-inner-div'>
-          {colorOptions[modelParts[activeIndex]] &&
-            colorOptions[modelParts[activeIndex]].map((item, index) => (
-              <div
-                key={index}
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  margin: "5px",
-                }}
-              >
-                <div
-                  className='color-box'
-                  style={{
-                    
-                    backgroundColor: item.hex,
-                    height: "30px",
-                    width: "30px",
-                    borderRadius: "25px",
-                    cursor: "pointer",
-                  }}
-                  onClick={() =>
-                    setColors(
-                      { part: modelParts[activeIndex], hex: item.hex },
-                      colors
-                    )
-                  }
-                ></div>
-              </div>
-            ))}
+          {modelParts[activeIndex] === "Hull Color" ? (
+            <input
+              type='color'
+              value={colors["Hull Color"]}
+              style={{
+                padding: "0px",
+                margin: "0px",
+              }}
+              onChange={(e) => {
+                setColors({
+                  part: modelParts[activeIndex],
+                  hex: e.target.value,
+                });
+              }}
+            />
+          ) : (
+            <>
+              {colorOptions[modelParts[activeIndex]] &&
+                colorOptions[modelParts[activeIndex]].map((item, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      alignItems: "center",
+                      margin: "5px",
+                    }}
+                  >
+                    <div
+                      className='color-box'
+                      style={{
+                        backgroundColor: item.hex,
+                        height: "30px",
+                        width: "30px",
+                        borderRadius: "25px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() =>
+                        setColors(
+                          { part: modelParts[activeIndex], hex: item.hex },
+                          colors
+                        )
+                      }
+                    ></div>
+                  </div>
+                ))}
+            </>
+          )}
         </div>
       </div>
 
-       {/* Show slide number indicator at the bottom */}
-       <div className="slide-indicator">
-        <div className="slide-indicator-line" />
+      {/* Show slide number indicator at the bottom */}
+      <div className='slide-indicator'>
+        <div className='slide-indicator-line' />
         {activeIndex + 1}/{totalSlides}
-        <div className="slide-indicator-line" />
+        <div className='slide-indicator-line' />
       </div>
-    
     </div>
   );
 }

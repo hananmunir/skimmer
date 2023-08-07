@@ -6,7 +6,7 @@ import {
   useThree,
   useLoader,
   useFrame,
-  } from "@react-three/fiber";
+} from "@react-three/fiber";
 import {
   Environment,
   Html,
@@ -21,8 +21,7 @@ import { jsPDF } from "jspdf";
 import useColorStore from "./Utils/store";
 import "./App.css";
 import { Skifour } from "./Components/skimmer-skiff-fourteen";
-import Menu from "./Components/Menu";
-
+import Menu from "./Components/Menu/Menu";
 
 //  function Loader() {
 //    const { progress } = useProgress();
@@ -65,18 +64,22 @@ function Ocean() {
       distortionScale: 1.5,
       fog: false,
       format: gl.encoding,
-      
-      
     }),
     [waterNormals]
   );
   useFrame(
-    (state, delta) => (ref.current.material.uniforms.time.value += delta * 0.155)
+    (state, delta) =>
+      (ref.current.material.uniforms.time.value += delta * 0.155)
   );
-  return <water ref={ref} args={[geom, config]} rotation-x={-Math.PI / 2} position={[0, -0.45, 0]}/>;
+  return (
+    <water
+      ref={ref}
+      args={[geom, config]}
+      rotation-x={-Math.PI / 2}
+      position={[0, -0.45, 0]}
+    />
+  );
 }
-
-
 
 export default function App() {
   const [showColorContainer, setShowColorContainer] = useState(false);
@@ -89,11 +92,11 @@ export default function App() {
 
   const toggleMenu = () => {
     setShowMenu((prevShowMenu) => !prevShowMenu);
-    setShowColorContainer(false); 
+    setShowColorContainer(false);
   };
 
   const captureScreenshot = () => {
-  const canvas = document.querySelector(".print");
+    const canvas = document.querySelector(".print");
 
     html2canvas(canvas).then((canvas) => {
       var imgData = canvasRef.current
@@ -112,36 +115,36 @@ export default function App() {
     if (showColorContainer) setActiveState(0);
 
     setShowColorContainer((prevShow) => !prevShow);
-    setShowMenu(false); 
+    setShowMenu(false);
   };
-
-  
 
   return (
     <div id='canvasComponent' style={{ height: "100vh", width: "100vw" }}>
       <Canvas
-        
         ref={canvasRef}
         className='print'
         camera={{ position: [0, 5, 100], fov: 45, near: 1, far: 20000 }}
         gl={{ preserveDrawingBuffer: true }}
       >
-       <Suspense fallback={null}>
-        {scene ? (
-           
-          <Environment background={true} files={"/Environment/kloofendal_48d_partly_cloudy_puresky_2k.hdr"} />
-        ) : (
-          <Environment background={true} files={"/Environment/kloppenheim_07_puresky_2k.hdr"}/>
-        )
-        }
-        <Ocean />
-        
+        <Suspense fallback={null}>
+          {scene ? (
+            <Environment
+              background={true}
+              files={"/Environment/kloofendal_48d_partly_cloudy_puresky_2k.hdr"}
+            />
+          ) : (
+            <Environment
+              background={true}
+              files={"/Environment/kloppenheim_07_puresky_2k.hdr"}
+            />
+          )}
+          <Ocean />
+
           <Skifour />
         </Suspense>
-        
 
         <OrbitControls
-          maxPolarAngle={Math.PI * 0.450}
+          maxPolarAngle={Math.PI * 0.45}
           rotateSpeed={0.6}
           panSpeed={0.6}
           enableZoom={true}
@@ -149,7 +152,6 @@ export default function App() {
           maxDistance={10}
           enablePan={false}
         />
-        
       </Canvas>
 
       {/*download pdf button*/}
@@ -167,7 +169,7 @@ export default function App() {
           <>
             {" "}
             <div onClick={handleColorClick} className='icon'>
-              <img  src='/color.png' alt='arrow' />
+              <img src='/color.png' alt='arrow' />
             </div>
             <div className='icon' onClick={() => setScene(!scene)}>
               <img
@@ -183,11 +185,9 @@ export default function App() {
       <div
         className='download-pdf'
         style={{
-          
           position: "fixed",
           bottom: "50px",
           left: "50px",
-          
         }}
       >
         <button onClick={captureScreenshot} className='button-pdf'>
@@ -195,23 +195,21 @@ export default function App() {
         </button>
       </div>
 
-       {/*menu button*/}
-       <div
+      {/*menu button*/}
+      <div
         className='menu-button'
         style={{
-          
           position: "fixed",
           bottom: "45px",
           right: "200px",
-         
         }}
       >
-        <button onClick={toggleMenu}  className='button-menu'>
+        <button onClick={toggleMenu} className='button-menu'>
           Edit Features
         </button>
       </div>
 
-      { showColorContainer && !previewMode && (
+      {showColorContainer && !previewMode && (
         <ColorContainer show={showColorContainer} />
       )}
 

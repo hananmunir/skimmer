@@ -1,0 +1,148 @@
+/* Menu css */
+.menu-container {
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    width: 350px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.699);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    opacity: .7;
+}
+
+.menu-container:hover {
+    opacity: 1;
+}
+
+.menu-header {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.menu-header-feature {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.menu-header-info {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+}
+
+.menu-items-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.menu-heading {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+label {
+    font-size: 14px;
+}
+
+.user-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+
+
+
+
+.user-form-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+
+.form-field {
+    margin-bottom: 10px;
+
+}
+
+
+.form-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-field input,
+.form-field select {
+    width: 92%;
+    padding: 10px;
+    font-size: 12px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-field select {
+    cursor: pointer;
+}
+
+.submit-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(39, 38, 38);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in;
+}
+
+.submit-button:hover {
+    background-color: #6b726b;
+}
+
+
+.quantity-input {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.quantity-input label {
+    margin-right: 10px;
+}
+
+.quantity-input input {
+    width: 50px;
+}
