@@ -110,6 +110,12 @@
   margin-bottom: 10px;
 }
 
+.menu-header-info{
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .centered {
   display: flex;
   justify-content: center;
@@ -143,9 +149,6 @@ label {
   font-size: 14px;
 }
 
-/* Add this CSS to your stylesheet or create a new CSS file and link it to your component */
-
-/* Styles for the user-form container */
 .user-form {
   background-color: #f9f9f9;
   padding: 20px;
@@ -158,7 +161,7 @@ label {
 
 
 
-/* Styles for form fields */
+
 .user-form-heading {
   text-align: center;
   margin-bottom: 20px;
@@ -193,6 +196,8 @@ label {
 }
 
 .submit-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color:  rgb(39, 38, 38);
   color: white;
   padding: 10px 20px;
