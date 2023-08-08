@@ -9,11 +9,15 @@ import gsap from "gsap";
 import { useThree } from "@react-three/fiber";
 import useColorStore from "../Utils/store";
 
-export function Skifour(props) {
+export function Skifour({ setModelLoaded, props }) {
   const { nodes, materials } = useGLTF("./models/skimmer-skiff-fourteen.glb");
   const { colors } = useColorStore();
 
   const primFencRef = useRef();
+
+  useEffect(() => {
+    setModelLoaded(true);
+  }, []);
 
   return (
     <group {...props} dispose={null}>

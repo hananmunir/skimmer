@@ -23,26 +23,27 @@ import "./App.css";
 import { Skifour } from "./Components/skimmer-skiff-fourteen";
 import Menu from "./Components/Menu/Menu";
 
-//  function Loader() {
-//    const { progress } = useProgress();
-//    return (
-//      <Html
-//        style={{
-//          position: "absolute",
-//          maxWidth: "100vw",
-//          height: "100vh",
-//          border: "1px solid red",
-//        }}
-//        center
-//      >
-//        <img
-//          src='/Landau_gif.gif'
-//          alt='Loading animation'
-//          style={{ height: "100vh", width: "100vw" }}
-//        />
-//      </Html>
-//    );
-//  }
+
+ function Loader() {
+   const { progress } = useProgress();
+   return (
+     <Html
+       style={{
+         position: "absolute",
+         maxWidth: "100vw",
+         height: "100vh",
+         border: "1px solid red",
+       }}
+       center
+     >
+       <img
+         src='/Landau_gif.gif'
+         alt='Loading animation'
+         style={{ height: "100vh", width: "100vw" }}
+       />
+     </Html>
+   );
+ }
 
 //extend
 extend({ Water });
@@ -85,6 +86,7 @@ export default function App() {
   const [showColorContainer, setShowColorContainer] = useState(false);
   const [previewMode, setPreviewMode] = useState(false);
   const [scene, setScene] = useState(true);
+  const [modelLoaded, setModelLoaded] = useState(false); 
   const setActiveState = useColorStore((state) => state.setActiveState);
   const canvasRef = useRef();
 
@@ -126,7 +128,7 @@ export default function App() {
         camera={{ position: [0, 5, 100], fov: 45, near: 1, far: 20000 }}
         gl={{ preserveDrawingBuffer: true }}
       >
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader/>}>
           {scene ? (
             <Environment
               background={true}
@@ -140,7 +142,7 @@ export default function App() {
           )}
           <Ocean />
 
-          <Skifour />
+          <Skifour setModelLoaded={setModelLoaded} />
         </Suspense>
 
         <OrbitControls
@@ -154,7 +156,10 @@ export default function App() {
         />
       </Canvas>
 
-      {/*download pdf button*/}
+     {
+        modelLoaded && (
+          <>
+           {/*download pdf button*/}
       <div className='icon-container'>
         <div
           className='icon'
@@ -208,6 +213,9 @@ export default function App() {
           Edit Features
         </button>
       </div>
+          </>
+        )
+     }
 
       {showColorContainer && !previewMode && (
         <ColorContainer show={showColorContainer} />

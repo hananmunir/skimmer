@@ -1,6 +1,8 @@
 import React from 'react';
 import backgroundImage from "/Pexels.png"; // Import your image here
 import "./index.css"; // Import your CSS file here if needed
+import { Link } from 'react-router-dom';
+
 
 export default function ModelSelector() {
   return (
@@ -15,10 +17,12 @@ export default function ModelSelector() {
             <div className="boat-heading">
                 <span className='boat-name'>14'</span>
             </div>
+            <Link to="/app">
             <div className="boat-image">
                 <div className="circular-overlay"></div>
                 <img className='boat-img' src="/14.png" alt="boat" />
             </div>
+            </Link>
         </div>
         <div className="boat-container">
              <div className="boat-heading-1">

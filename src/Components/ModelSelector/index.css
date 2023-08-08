@@ -1,4 +1,15 @@
-/* index.css */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('/static/Orbitron-Regular.ttf') format('truetype');
+    
+}
+@font-face {
+    font-family: 'CustomFont1';
+    src: url('/static/Orbitron-Black.ttf') format('truetype');
+    
+}
+
+
 .page-container {
     position: relative;
     height: 100vh;
@@ -22,9 +33,10 @@
   
   .centered-text {
     position: absolute;
-    font-family: 'Orbitron', sans-serif;
     font-size: 3rem;
     top: 0;
+    font-family: 'CustomFont', sans-serif;
+
     margin-top: 3%;
     text-align: center;
     z-index: 1; /* Place the text above the image */
@@ -32,6 +44,7 @@
   
   .centered-text span {
     color: white; /* SELECT text color */
+   
   }
   
   .centered-text span:last-child {
@@ -52,6 +65,7 @@
     cursor: pointer;
     z-index: 1; /* Place the button above the image */
   }
+
   
  .boats-container{
     margin-top: 2%;
@@ -78,11 +92,14 @@
     font-weight: bold;
     /* border: 2px solid black; */
     transform: translateY(-30%);
+    font-family: 'CustomFont1', sans-serif;
+   
  }
 
  .boat-heading-1{
     font-size: 2.5rem;
     font-weight: bold;
+    font-family: 'CustomFont1', sans-serif;
     /* border: 2px solid black; */
     
  }

@@ -47,13 +47,10 @@
 
 .color-inner-div {
   display: flex;
-  flex-wrap: wrap;
-
+  /* flex-wrap: wrap; */
   justify-content: center;
   padding: 5px;
   min-width: 170px;
-
-
 }
 
 .color-inner-div>div {
@@ -62,7 +59,7 @@
 
 .slide-indicator {
   position: absolute;
-  bottom: 10px;
+  bottom: 2px;
   left: 0;
   right: 0;
   display: flex;
