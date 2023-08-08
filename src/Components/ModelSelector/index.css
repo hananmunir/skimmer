@@ -1,0 +1,169 @@
+/* index.css */
+.page-container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* To hide overflowing content */
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    object-fit: cover;
+    z-index: -1; /* Move the image behind other elements */
+  }
+  
+  .centered-text {
+    position: absolute;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    top: 0;
+    margin-top: 3%;
+    text-align: center;
+    z-index: 1; /* Place the text above the image */
+  }
+  
+  .centered-text span {
+    color: white; /* SELECT text color */
+  }
+  
+  .centered-text span:last-child {
+    color: #8FD7DA; /* MODEL text color */
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 3%;
+    margin-top: 3.5%; /* Adjust as needed */
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(10, 9, 9);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 1; /* Place the button above the image */
+  }
+  
+ .boats-container{
+    margin-top: 2%;
+    /* border: 1px solid black ; */
+    width: 70vw;
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+ }
+
+ .boat-container{
+    /* border: 1px solid black ; */
+    width: 25vw;
+    height: 54vh;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .boat-heading{
+    font-size: 2.5rem;
+    font-weight: bold;
+    /* border: 2px solid black; */
+    transform: translateY(-30%);
+ }
+
+ .boat-heading-1{
+    font-size: 2.5rem;
+    font-weight: bold;
+    /* border: 2px solid black; */
+    
+ }
+
+ .boat-image{
+    width: 100%;
+    margin-top: 8%;
+   
+    /* border: 1px solid black; */
+ }
+
+ .boat-image-1{
+    /* border: 1px solid black; */
+    width: 100%;
+    margin-top: 5%;
+
+ }
+
+ .boat-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: ease-in-out 0.5s;
+ }
+
+ .boat-img-1{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: ease-in-out 0.5s;
+ }
+
+ .bottom-text {
+    position: absolute;
+    bottom: 40px;
+    font-size: 0.7rem;
+    color: rgb(75, 71, 71);
+    text-align: center;
+    width: 35%;
+  }
+
+  .circular-overlay {
+    position: absolute;
+    margin-left: 5% ;
+    margin-top: 1% ;
+    width: 16%;
+    height: 32%;
+    background-color: #ebf9fa;
+    border-radius: 50%;
+    z-index: -1; /* Place the overlay behind the image */
+    transition: ease-in-out 0.5s;
+  }
+
+  .circular-overlay-1 {
+    position: absolute;
+    margin-left: 5% ;
+    margin-top: 3% ;
+    width: 16%;
+    height: 32%;
+    background-color: #ebf9fa;
+    border-radius: 50%;
+    z-index: -1; /* Place the overlay behind the image */
+    transition: ease-in-out 0.5s;
+  }
+
+  .boat-image:hover .boat-img {
+    transform: scale(1.2); /* Increase image size on hover */
+  }
+  
+  .boat-image:hover .circular-overlay  {
+    background-color: #88cbce;
+   
+  }
+
+  .boat-image-1:hover .boat-img-1 {
+    transform: scale(1.2); /* Increase image size on hover */
+        
+  }
+
+
+  .boat-image-1:hover .circular-overlay-1 {
+    background-color: #88cbce;
+   
+  }
