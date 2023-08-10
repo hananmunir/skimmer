@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'CustomFont';
-    src: url('/static/Orbitron-Regular.ttf') format('truetype');
+    font-family: 'CustomFont3';
+    src: url('/static/Orbitron-Bold.ttf') format('truetype');
     
 }
 
@@ -17,7 +17,7 @@
     font-family: Arial, sans-serif;
     margin: 0 auto;
     opacity: .7;
-    font-family: 'CustomFont', sans-serif;
+    
 }
 
 .menu-container:hover {
@@ -26,14 +26,16 @@
 
 .menu-header {
     font-size: 18px;
-    font-weight: bold;
     border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
+    font-family: 'CustomFont3', sans-serif;
 }
 
 .menu-header-feature {
+    font-family: 'CustomFont3', sans-serif;
     font-size: 18px;
     margin-bottom: 10px;
+ 
 }
 
 .menu-header-info {
@@ -48,12 +50,16 @@
     align-items: center;
     flex-direction: column;
     height: auto;
-    font-family: 'CustomFont', sans-serif;
+    
 }
 
 .menu-items-container {
     max-height: 400px;
     overflow-y: auto;
+}
+
+.menu-items-1{
+    margin-bottom: 20px;
 }
 
 .menu-heading {

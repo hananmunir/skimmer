@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import React, { Suspense, useRef, useMemo, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Canvas,
   extend,
@@ -22,28 +23,28 @@ import useColorStore from "./Utils/store";
 import "./App.css";
 import { Skifour } from "./Components/skimmer-skiff-fourteen";
 import Menu from "./Components/Menu/Menu";
+import Loader from "./Components/Loader";
 
-
- function Loader() {
-   const { progress } = useProgress();
-   return (
-     <Html
-       style={{
-         position: "absolute",
-         maxWidth: "100vw",
-         height: "100vh",
-         border: "1px solid red",
-       }}
-       center
-     >
-       <img
-         src='/Landau_gif.gif'
-         alt='Loading animation'
-         style={{ height: "100vh", width: "100vw" }}
-       />
-     </Html>
-   );
- }
+//  function Loader() {
+//    const { progress } = useProgress();
+//    return (
+//      <Html
+//        style={{
+//          position: "absolute",
+//          maxWidth: "100vw",
+//          height: "100vh",
+//          border: "1px solid red",
+//        }}
+//        center
+//      >
+//        <img
+//          src='/Landau_gif.gif'
+//          alt='Loading animation'
+//          style={{ height: "100vh", width: "100vw" }}
+//        />
+//      </Html>
+//    );
+//  }
 
 //extend
 extend({ Water });
@@ -199,6 +200,25 @@ export default function App() {
           Download PDF
         </button>
       </div>
+
+          {/*go back button*/}
+      
+      <div
+        onClick={() => {
+          window.location.href = "/";
+        }}
+        className='download-pdf'
+        style={{
+          position: "fixed",
+          top: "50px",
+          left: "50px",
+        }}
+      >
+        <button className='button-pdf'>
+          Go Back
+        </button>
+          </div>
+      
 
       {/*menu button*/}
       <div

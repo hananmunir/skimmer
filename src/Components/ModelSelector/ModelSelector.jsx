@@ -17,12 +17,15 @@ export default function ModelSelector() {
             <div className="boat-heading">
                 <span className='boat-name'>14'</span>
             </div>
-            <Link to="/app">
-            <div className="boat-image">
+            
+            <div className="boat-image"   
+            onClick={() => {
+            window.location.href = "/app";
+            }} >
                 <div className="circular-overlay"></div>
                 <img className='boat-img' src="/14.png" alt="boat" />
             </div>
-            </Link>
+          
         </div>
         <div className="boat-container">
              <div className="boat-heading-1">

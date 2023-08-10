@@ -158,7 +158,7 @@ const Menu = () => {
       <div className='menu-items-container'>
         <div className='menu-items'>
           {Object.entries(options).map(([heading, items], index) => (
-            <div key={index}>
+            <div className="menu-items-1" key={index}>
               <div className='menu-heading'>{heading.split('(')[0].trim()}</div>
               {heading.includes("(single select)") ? (
                 <Select
