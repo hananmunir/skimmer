@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./index.css";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import useColorStore from "../Utils/store";
-import { ChromePicker} from "react-color";
+import { ChromePicker } from "react-color";
 
 const modelParts = ["Hull Color", "Poling Platform", "Power Pole"];
 
@@ -122,17 +122,17 @@ function ColorContainer({ show }) {
       <div className='colors-div'>
         <div className='color-inner-div'>
           {modelParts[activeIndex] === "Hull Color" ? (
-            <div className="color-picker" >
-               <ChromePicker
-             disableAlpha={true}
-             color={colors["Hull Color"]}
-             onChange={(color) => {
-               setColors({
-                 part: modelParts[activeIndex],
-                 hex: color.hex,
-               });
-             }}
-           />
+            <div className='color-picker'>
+              <ChromePicker
+                disableAlpha={true}
+                color={colors["Hull Color"]}
+                onChange={(color) => {
+                  setColors({
+                    part: modelParts[activeIndex],
+                    hex: color.hex,
+                  });
+                }}
+              />
             </div>
           ) : (
             <>

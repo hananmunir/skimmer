@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 const useColorStore = create((set) => ({
   colors: {
-    "Hull Color": "#dbb729",
+    "Hull Color": "",
     "Power Poles": "",
     "Poling Platform": "",
   },
