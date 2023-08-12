@@ -168,3 +168,10 @@ label {
 .quantity-input input {
     width: 50px;
 }
+
+.error-message{
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    font-family: 'CustomFont5', sans-serif;
+}

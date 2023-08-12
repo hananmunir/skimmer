@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useMenuStore from "../../Utils/menuStore14";
+import useColorStore from "../../Utils/store";
 import { Select, MenuItem } from "@mui/material";
 import axios from "axios";
 import "./index.css";
@@ -72,7 +73,8 @@ const defaultUser = {
 
 const Menu = () => {
   // const [isModalOpen, setModalOpen] = useState(false);
-
+  const {colors} = useColorStore();
+  const [formErrors, setFormErrors] = useState({});
   const { totalPrice, updateTotalPrice, updateSelection, selectedOptions } =
     useMenuStore();
 
@@ -135,6 +137,15 @@ const Menu = () => {
 
   const handleUserFormChange = (event) => {
     const { name, value } = event.target;
+    let error = "";
+    if (value.trim() === "") {
+      error = "This field is required";
+    }
+    setFormErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: error,
+    }));
+
     setUserForm((prevUserForm) => ({
       ...prevUserForm,
       [name]: value,
@@ -142,11 +153,25 @@ const Menu = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Check for validation errors
+  const hasErrors = Object.values(formErrors).some(error => error !== '');
+
+  if (hasErrors) {
+    console.log("Form has validation errors. Please fix them before submitting.");
+    return;
+  }
+    
+    const colorData = Object.entries(colorStore.colors).map(([part, hexColor]) => ({
+      part,
+      hexColor,
+    }));
     axios
-      .post("https://formsubmit.co/ajax/shobhittitus@rocketmail.com", {
+      .post("https://formsubmit.co/ajax/Hananmunir471@gmail.com", {
         //if you want to send selected options as well, uncomment this
         ...selectedOptions,
         ...userForm,
+        ...colors,
       })
       .then((res) => {
         console.log("Form Submitted");
@@ -237,6 +262,9 @@ const Menu = () => {
               required
               placeholder='First Name'
             />
+            {formErrors.firstName && (
+            <div className='error-message'>{formErrors.firstName}</div>
+          )}
           </div>
           <div className='form-field'>
             <label htmlFor='lastName'>Last Name*</label>
@@ -249,6 +277,9 @@ const Menu = () => {
               required
               placeholder='Last Name'
             />
+            {formErrors.lastName && ( 
+            <div className='error-message'>{formErrors.lastName}</div>
+          )}
           </div>
           <div className='form-field'>
             <label htmlFor='phone'>Phone*</label>
@@ -261,6 +292,9 @@ const Menu = () => {
               required
               placeholder='Phone Number'
             />
+            {formErrors.phone && (
+            <div className='error-message'>{formErrors.phone}</div>
+          )}
           </div>
           <div className='form-field'>
             <label htmlFor='email'>Email*</label>
@@ -273,6 +307,9 @@ const Menu = () => {
               required
               placeholder='Email'
             />
+            {formErrors.email && (
+            <div className='error-message'>{formErrors.email}</div>
+          )}
           </div>
           <div className='form-field'>
             <label htmlFor='address'>Address*</label>
@@ -285,6 +322,9 @@ const Menu = () => {
               required
               placeholder='Address'
             />
+            {formErrors.address && (
+            <div className='error-message'>{formErrors.address}</div>
+          )}
           </div>
           <div className='form-field'>
             <label htmlFor='streetAddress'>Street Address</label>
@@ -345,6 +385,17 @@ const Menu = () => {
               <option value='Other'>Other</option>
             </select>
           </div>
+          {/* {Object.entries(colorStore.colors).map(([part, hexColor]) => (
+        <div key={part} className="color-selection">
+          <span>{part}</span>
+            <div style={{
+              backgroundColor: hexColor,
+              width: '20px',
+              height: '20px',
+              boxShadow: '0px 0px 0px 1px rgba(0,0,0,0.1) inset',
+            }} ></div>
+        </div>
+      ))} */}
         </div>
         <div className='centered'>
           <button className='submit-button' onClick={handleSubmit}>

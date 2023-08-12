@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useMenuStore from "../../Utils/menuStore16";
+import useColorStore from "../../Utils/store";
 import { Select, MenuItem } from "@mui/material";
 import "./index.css";
 import axios from "axios";
@@ -77,6 +78,8 @@ const defaultUser = {
 
 const Menu = () => {
   // const [isModalOpen, setModalOpen] = useState(false);
+    const {colors} = useColorStore();
+  const [formErrors, setFormErrors] = useState({});
 
   const { totalPrice, updateTotalPrice, updateSelection, selectedOptions } =
     useMenuStore();
@@ -140,6 +143,15 @@ const Menu = () => {
 
   const handleUserFormChange = (event) => {
     const { name, value } = event.target;
+    let error = "";
+    if (value.trim() === "") {
+      error = "This field is required";
+    }
+    setFormErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: error,
+    }));
+
     setUserForm((prevUserForm) => ({
       ...prevUserForm,
       [name]: value,
@@ -148,11 +160,21 @@ const Menu = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+       // Check for validation errors
+  const hasErrors = Object.values(formErrors).some(error => error !== '');
+
+  if (hasErrors) {
+    console.log("Form has validation errors. Please fix them before submitting.");
+    return;
+  }
+  
     axios
       .post("https://formsubmit.co/ajax/shobhittitus@rocketmail.com", {
         //if you want to send selected options as well, uncomment this
         ...selectedOptions,
         ...userForm,
+        ...colors,
       })
       .then((res) => {
         console.log("Form Submitted");
@@ -243,6 +265,9 @@ const Menu = () => {
               required
               placeholder='First Name'
             />
+            {formErrors.firstName && (
+            <div className='error-message'>{formErrors.firstName}</div>
+            )}
           </div>
           <div className='form-field'>
             <label htmlFor='lastName'>Last Name*</label>
@@ -255,6 +280,9 @@ const Menu = () => {
               required
               placeholder='Last Name'
             />
+            {formErrors.lastName && (
+            <div className='error-message'>{formErrors.lastName}</div>
+            )}
           </div>
           <div className='form-field'>
             <label htmlFor='phone'>Phone*</label>
@@ -267,6 +295,9 @@ const Menu = () => {
               required
               placeholder='Phone Number'
             />
+            {formErrors.phone && (
+            <div className='error-message'>{formErrors.phone}</div>
+            )}
           </div>
           <div className='form-field'>
             <label htmlFor='email'>Email*</label>
@@ -279,6 +310,9 @@ const Menu = () => {
               required
               placeholder='Email'
             />
+            {formErrors.email && (
+            <div className='error-message'>{formErrors.email}</div>
+            )}
           </div>
           <div className='form-field'>
             <label htmlFor='address'>Address*</label>
@@ -291,6 +325,9 @@ const Menu = () => {
               required
               placeholder='Address'
             />
+            {formErrors.address && (
+            <div className='error-message'>{formErrors.address}</div>
+            )}
           </div>
           <div className='form-field'>
             <label htmlFor='streetAddress'>Street Address</label>

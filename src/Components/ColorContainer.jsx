@@ -7,7 +7,7 @@ import { GrPrevious, GrNext } from "react-icons/gr";
 import useColorStore from "../Utils/store";
 import { ChromePicker } from "react-color";
 
-const modelParts = ["Hull Color", "Poling Platform", "Power Pole"];
+const modelParts = ["Hull Color", "Poling Platform", "Power Poles"];
 
 const colorOptions = {
   "Hull Color": [
@@ -57,7 +57,7 @@ const colorOptions = {
       hex: "#000000",
     },
   ],
-  "Power Pole": [
+  "Power Poles": [
     {
       hex: "#ffffff",
     },

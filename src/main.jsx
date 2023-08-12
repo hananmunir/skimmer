@@ -9,11 +9,11 @@ import Skimmer16 from "./Pages/Skimmer16.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/skimmer14",
+    path: "/Skimmer14",
     element: <Skimmer14 />,
   },
   {
-    path: "/skimmer16",
+    path: "/Skimmer16",
     element: <Skimmer16 />,
   },
   {
