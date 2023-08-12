@@ -132,7 +132,7 @@ function ColorContainer({ show }) {
                     hex: color.hex,
                   });
                 }}
-              />
+              />s
             </div>
           ) : (
             <>

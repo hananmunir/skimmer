@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'CustomFont4';
+  src: url('/static/Orbitron-Bold.ttf') format('truetype');
+
+}
+
 .color-container {
   width: 250px;
   height: auto;
@@ -20,6 +26,7 @@
   margin: auto;
   width: 100%;
   padding-top: 5px;
+  font-family: 'CustomFont4', sans-serif;
 }
 
 .color-card-icon {
