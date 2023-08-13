@@ -193,3 +193,57 @@
   background-color: #88cbce;
 
 }
+
+@media (max-width: 768px) {
+
+  .page-container{
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .centered-text {
+    font-size: 1.1rem;
+    margin-top: 14.5%;
+  }
+  
+  .boats-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back-button {
+    font-size: 0.5rem; 
+    padding: 5px 10px; 
+    margin-top: 3%; 
+  }
+  
+  .boats-container {
+    width: 80%; 
+    margin-top: 20%;  
+  }
+
+  .boat-container {
+    width: 60%; 
+    height: auto; 
+  }
+
+  .boat-heading,
+  .boat-heading-1{
+    font-size: 2rem;
+  }
+
+  .bottom-text {
+    bottom: 10px;
+    width: 75%;
+    font-size: 10px;
+  }
+
+  .circular-overlay,
+  .circular-overlay-1 {
+    width: 100px; /* Adjust overlay width */
+    height: 100px; /* Adjust overlay height */
+    margin-left: 45px; /* Adjust margin */
+    margin-top: 20px; /* Adjust margin */
+  }
+
+}
