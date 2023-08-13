@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+
 import App from "./App.jsx";
 import "./index.css";
 import ModelSelector from "./Components/ModelSelector/ModelSelector.jsx";
@@ -25,8 +25,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
     <RouterProvider router={router} />
-    </BrowserRouter>s
   </React.StrictMode>
 );
