@@ -19,7 +19,7 @@ export default function ModelSelector() {
         <div
           className='boat-container'
           onClick={() => {
-            window.location.href = "/skimmer14";
+            window.location.href = "/Skimmer14";
           }}
         >
           <div className='boat-heading'>
@@ -34,7 +34,7 @@ export default function ModelSelector() {
         <div
           className='boat-container'
           onClick={() => {
-            window.location.href = "/skimmer16";
+            window.location.href = "/Skimmer16";
           }}
         >
           <div className='boat-heading-1'>
