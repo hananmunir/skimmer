@@ -17,8 +17,9 @@ const Loader = () => {
         style={{
           position: "absolute",
           top: "50%",
+          width: "150px",
+          transform: "translateX(-30%)",
         }}
-        className='loader-container'
       >
         {progress.toFixed(0)} % loaded
       </div>
