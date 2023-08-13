@@ -158,23 +158,20 @@ const Menu = () => {
   const hasErrors = Object.values(formErrors).some(error => error !== '');
 
   if (hasErrors) {
-    console.log("Form has validation errors. Please fix them before submitting.");
+    alert("Please fill all the required fields");
     return;
   }
+  
     
-    const colorData = Object.entries(colorStore.colors).map(([part, hexColor]) => ({
-      part,
-      hexColor,
-    }));
     axios
-      .post("https://formsubmit.co/ajax/Hananmunir471@gmail.com", {
+      .post("https://formsubmit.co/ajax/shobhittitus@rocketmail.com", {
         //if you want to send selected options as well, uncomment this
         ...selectedOptions,
         ...userForm,
         ...colors,
       })
       .then((res) => {
-        console.log("Form Submitted");
+        alert("Form submitted successfully")
       });
     setUserForm(defaultUser);
   };
