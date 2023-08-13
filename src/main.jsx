@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <Skimmer14 />,
   },
   {
-    path: "/Skimmer16",
+    path: "/Skimmer",
     element: <Skimmer16 />,
   },
   {
